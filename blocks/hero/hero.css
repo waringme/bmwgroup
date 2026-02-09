@@ -11,17 +11,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 64px 24px;
-  min-height: 380px;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background: linear-gradient(to bottom, rgb(0 40 86 / 0.6) 0%, rgb(0 40 86 / 0.4) 100%);
-  pointer-events: none;
+  padding: 48px 24px;
+  min-height: 420px;
 }
 
 .hero h1 {
@@ -93,6 +84,13 @@
 @media (width >= 900px) {
   .hero {
     padding: 80px 32px;
-    min-height: 420px;
+    min-height: 520px;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero {
+    min-height: 56vh;
+    max-height: 680px;
   }
 }
