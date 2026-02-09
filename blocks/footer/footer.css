@@ -1,20 +1,39 @@
+/* footer - Group 1 BMW dealer style */
 footer {
-  background-color: var(--light-color);
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: 0 auto;
+  max-width: var(--content-max-width);
+  padding: 48px 24px 32px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+footer .footer a:any-link {
+  color: var(--footer-link);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  color: var(--footer-text);
+  text-decoration: underline;
+}
+
+footer .footer h3,
+footer .footer h4 {
+  color: var(--footer-text);
+  font-size: var(--heading-font-size-s);
+  margin-bottom: 1em;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 48px 32px 32px;
   }
 }

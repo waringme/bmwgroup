@@ -1,3 +1,4 @@
+/* hero - Group 1 BMW dealer style */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,14 +6,64 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px;
+  min-height: 420px;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto 0.5em;
+  color: var(--background-color);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+}
+
+.hero h2,
+.hero p {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto 1em;
+  color: var(--nav-text);
+  font-size: var(--body-font-size-m);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+.hero .button-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.hero a.button:any-link {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--nav-bg);
+}
+
+.hero a.button:hover {
+  background-color: var(--light-color);
+  color: var(--nav-bg);
+}
+
+.hero a.button.secondary {
+  border-color: var(--background-color);
+  color: var(--background-color);
+}
+
+.hero a.button.secondary:hover {
+  background-color: rgb(255 255 255 / 0.15);
+  border-color: var(--background-color);
   color: var(--background-color);
 }
 
@@ -32,6 +83,14 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 80px 32px;
+    min-height: 520px;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero {
+    min-height: 56vh;
+    max-height: 680px;
   }
 }

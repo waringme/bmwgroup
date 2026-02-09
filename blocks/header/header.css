@@ -1,15 +1,10 @@
-/*
- * BMW Dealership Header
- * Migrated from: https://www.group1readingbmw.co.uk/
- * Uses contentHolder contain pattern: max-width 1440px, 72px horizontal margin
- */
-
-/* header and nav layout */
+/* header and nav layout - Group 1 BMW dealer style */
 header .nav-wrapper {
-  background-color: var(--color-dark);
+  background-color: var(--nav-bg);
   width: 100%;
   z-index: 10;
   position: fixed;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
 }
 
 header nav {
@@ -65,15 +60,13 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: var(--color-white);
+  color: var(--nav-text);
   text-decoration: none;
-  font-size: var(--body-font-size-xs);
-  letter-spacing: 0.39px;
 }
 
 header nav a:hover {
-  text-decoration: underline;
-  color: var(--color-white);
+  color: var(--nav-hover);
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -91,7 +84,7 @@ header nav .nav-hamburger button {
   border-radius: 0;
   padding: 0;
   background-color: transparent;
-  color: var(--color-white);
+  color: var(--nav-text);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -163,37 +156,14 @@ header .nav-brand {
   grid-area: brand;
   font-size: var(--body-font-size-xs);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 0.39px;
-  color: var(--color-white);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-header .nav-brand ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-header nav .nav-brand a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--color-white);
-  text-decoration: none;
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-}
-
-header nav .nav-brand a:hover {
-  text-decoration: none;
+  line-height: 1;
+  color: var(--nav-text);
 }
 
 header nav .nav-brand img {
-  width: 48px;
-  height: 48px;
+  width: 128px;
+  height: auto;
+  filter: brightness(0) invert(1);
 }
 
 @media (width >= 900px) {
@@ -300,10 +270,13 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     position: absolute;
     left: -24px;
-    width: 200px;
-    top: 150%;
+    width: 220px;
+    top: 100%;
+    margin-top: 4px;
     padding: 16px;
-    background-color: var(--color-dark-secondary);
+    background-color: var(--background-color);
+    box-shadow: var(--card-shadow-hover);
+    border-radius: 4px;
     white-space: initial;
   }
 
@@ -316,7 +289,15 @@ header nav .nav-sections ul > li > ul > li {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--color-dark-secondary);
+    border-bottom: 8px solid var(--background-color);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a {
+    color: var(--text-color);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
+    color: var(--link-color);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
