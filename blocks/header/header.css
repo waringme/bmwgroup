@@ -1,57 +1,49 @@
-/* header and nav layout - Group 1 BMW dealer style */
+/* header and nav layout - BMW dealer transparent overlay style */
 header .nav-wrapper {
-  background-color: var(--nav-bg);
+  background-color: transparent;
   width: 100%;
   z-index: 10;
-  position: fixed;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 header nav {
   box-sizing: border-box;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+  display: flex;
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: var(--content-max-width);
-  height: var(--nav-height);
+  max-width: 1440px;
+  height: 74px;
   padding: 0 24px;
   font-family: var(--body-font-family);
-  color: var(--color-white);
+  color: var(--nav-text);
+  position: relative;
 }
 
+/* Separator line at bottom of nav */
+header nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background-color: rgba(255 255 255 / 0.3);
+}
+
+/* Expanded state - full screen overlay */
 header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
-  background-color: var(--color-dark);
+  background-color: var(--nav-bg);
+  flex-wrap: wrap;
+  align-content: start;
 }
 
-@media (width >= 900px) {
-  header .nav-wrapper {
-    position: relative;
-  }
-
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 32px;
-    max-width: var(--content-max-width);
-    padding: 0 72px;
-    height: 74px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
+header nav[aria-expanded='true']::after {
+  display: none;
 }
 
 header nav p {
@@ -69,12 +61,13 @@ header nav a:hover {
   text-decoration: none;
 }
 
-/* hamburger */
+/* hamburger - visible on ALL viewports */
 header nav .nav-hamburger {
-  grid-area: hamburger;
   height: 22px;
   display: flex;
   align-items: center;
+  order: 1;
+  flex-shrink: 0;
 }
 
 header nav .nav-hamburger button {
@@ -104,7 +97,7 @@ header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: var(--color-white);
+  background: var(--nav-text);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
@@ -112,7 +105,7 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
-  background: var(--color-white);
+  background: var(--nav-text);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
@@ -144,44 +137,37 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-/* brand - BMW logo + dealer name */
+/* brand - dealer name + BMW logo, positioned far right */
 header .nav-brand {
-  grid-area: brand;
   font-size: var(--body-font-size-xs);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1;
   color: var(--nav-text);
+  order: 3;
+  flex-shrink: 0;
+  margin-left: auto;
+  letter-spacing: 0.39px;
+}
+
+header .nav-brand ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header .nav-brand a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 header nav .nav-brand img {
-  width: 128px;
-  height: auto;
-  filter: brightness(0) invert(1);
+  width: 56px;
+  height: 56px;
 }
 
-@media (width >= 900px) {
-  header .nav-brand {
-    order: 3;
-    flex-shrink: 0;
-  }
-
-  header nav .nav-brand img {
-    width: 56px;
-    height: 56px;
-  }
-}
-
-/* sections - nav dropdown menus */
+/* sections - hidden by default on ALL viewports, shown only in expanded menu */
 header nav .nav-sections {
-  grid-area: sections;
-  flex: 1 1 auto;
   display: none;
   visibility: hidden;
 }
@@ -189,6 +175,8 @@ header nav .nav-sections {
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
+  width: 100%;
+  order: 10;
   align-self: start;
 }
 
@@ -200,7 +188,7 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--nav-text);
   letter-spacing: 0.39px;
 }
 
@@ -212,105 +200,12 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
 }
 
-@media (width >= 900px) {
-  header nav .nav-sections {
-    display: block;
-    visibility: visible;
-    white-space: nowrap;
-    order: 1;
-  }
-
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-  }
-
-  header nav .nav-sections .nav-drop {
-    position: relative;
-    padding-right: 16px;
-    cursor: pointer;
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.5em;
-    right: 2px;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid var(--color-white);
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
-    transform: rotate(315deg);
-  }
-
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 220px;
-    top: 100%;
-    margin-top: 4px;
-    padding: 16px;
-    background-color: var(--background-color);
-    box-shadow: var(--card-shadow-hover);
-    border-radius: 4px;
-    white-space: initial;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--background-color);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul a {
-    color: var(--text-color);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
-    color: var(--link-color);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
-  }
-}
-
 /* tools - utility links (book test drive, book service, phone) */
 header nav .nav-tools {
-  grid-area: tools;
   display: flex;
   align-items: center;
   gap: 0;
+  order: 2;
 }
 
 header nav .nav-tools ul {
@@ -334,7 +229,7 @@ header nav .nav-tools li:last-child {
 header nav .nav-tools a {
   font-size: var(--body-font-size-xs);
   font-weight: 400;
-  color: var(--color-white);
+  color: var(--nav-text);
   letter-spacing: 0.39px;
   white-space: nowrap;
 }
@@ -352,7 +247,7 @@ header nav .nav-tools li:last-child a::before {
   background-size: contain;
 }
 
-/* Hide tools links on mobile (show in expanded menu) */
+/* Mobile: hide tools in collapsed state, show in expanded menu */
 @media (width < 900px) {
   header nav .nav-tools {
     display: none;
@@ -360,6 +255,8 @@ header nav .nav-tools li:last-child a::before {
 
   header nav[aria-expanded='true'] .nav-tools {
     display: block;
+    width: 100%;
+    order: 11;
     padding: 16px 0;
     border-top: 1px solid rgba(255 255 255 / 20%);
   }
@@ -375,9 +272,14 @@ header nav .nav-tools li:last-child a::before {
   }
 }
 
+/* Desktop: wider padding matching contentHolder contain pattern */
 @media (width >= 900px) {
-  header nav .nav-tools {
-    order: 2;
-    flex-shrink: 0;
+  header nav {
+    padding: 0 72px;
+  }
+
+  header nav::after {
+    left: 72px;
+    right: 72px;
   }
 }
