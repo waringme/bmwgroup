@@ -1,10 +1,13 @@
+/* columns - Group 1 BMW dealer style */
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns img {
   width: 100%;
+  display: block;
 }
 
 .columns > div > div {
@@ -17,13 +20,24 @@
 
 .columns > div > .columns-img-col img {
   display: block;
+  border-radius: 4px;
+}
+
+.columns h2,
+.columns h3 {
+  margin-top: 0;
+  color: var(--heading-color);
+}
+
+.columns a.button {
+  margin-top: 8px;
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 40px;
   }
 
   .columns > div > div {
