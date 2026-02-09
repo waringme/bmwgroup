@@ -1,19 +1,45 @@
+/* cards - Group 1 BMW dealer style (offers, news, features) */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
   background-color: var(--background-color);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cards > ul > li:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgb(0 0 0 / 0.12);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 20px;
+}
+
+.cards .cards-card-body h3,
+.cards .cards-card-body h4 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-m);
+}
+
+.cards .cards-card-body p {
+  margin: 0.5em 0 0;
+  font-size: var(--body-font-size-s);
+}
+
+.cards .cards-card-body a.button {
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 .cards .cards-card-image {

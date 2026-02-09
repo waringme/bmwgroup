@@ -1,9 +1,10 @@
-/* header and nav layout */
+/* header and nav layout - Group 1 BMW dealer style */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--nav-bg);
   width: 100%;
   z-index: 2;
   position: fixed;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
 }
 
 header nav {
@@ -55,7 +56,13 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--nav-text);
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: var(--nav-hover);
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -72,8 +79,8 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: var(--nav-text);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -146,11 +153,13 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  color: var(--nav-text);
 }
 
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 
 /* sections */
@@ -242,10 +251,13 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     position: absolute;
     left: -24px;
-    width: 200px;
-    top: 150%;
+    width: 220px;
+    top: 100%;
+    margin-top: 4px;
     padding: 16px;
-    background-color: var(--light-color);
+    background-color: var(--background-color);
+    box-shadow: var(--card-shadow-hover);
+    border-radius: 4px;
     white-space: initial;
   }
 
@@ -258,7 +270,15 @@ header nav .nav-sections ul > li > ul > li {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    border-bottom: 8px solid var(--background-color);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a {
+    color: var(--text-color);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
+    color: var(--link-color);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
