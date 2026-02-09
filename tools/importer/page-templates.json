@@ -1,0 +1,23 @@
+{
+  "templates": [
+    {
+      "name": "BMW Dealership Homepage",
+      "urls": ["https://www.group1readingbmw.co.uk/"],
+      "description": "BMW dealership homepage with hero banner, car locator cards, news & offers section, split image-text teasers, about us cards, and contact information.",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".heroCarousel .heroPageHead"]
+        },
+        {
+          "name": "cards",
+          "instances": [".splitPromoNavigation", ".triplePanel", "#aboutUs .triplePanel"]
+        },
+        {
+          "name": "columns",
+          "instances": [".splitBannerTeaserCMS", ".splitFrameTeaserCMS", ".contact-us-module"]
+        }
+      ]
+    }
+  ]
+}
