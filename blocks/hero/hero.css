@@ -47,24 +47,27 @@
 
 .hero a.button:any-link {
   margin: 0;
-  background-color: var(--background-color);
-  color: var(--nav-bg);
+  background-color: var(--button-primary-bg);
+  color: var(--background-color);
+  border: 2px solid var(--button-primary-bg);
 }
 
 .hero a.button:hover {
-  background-color: var(--light-color);
-  color: var(--nav-bg);
+  background-color: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+  color: var(--background-color);
 }
 
 .hero a.button.secondary {
-  border-color: var(--background-color);
-  color: var(--background-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
 }
 
 .hero a.button.secondary:hover {
-  background-color: rgb(255 255 255 / 0.15);
-  border-color: var(--background-color);
-  color: var(--background-color);
+  background-color: var(--light-color);
+  border-color: var(--text-color);
+  color: var(--text-color);
 }
 
 .hero picture {
