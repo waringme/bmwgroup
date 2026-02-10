@@ -54,6 +54,15 @@
   --content-max-width: 1200px;
 }
 
+/* BMW proprietary font */
+@font-face {
+  font-family: BMWTypeNextLatin-Light;
+  src: url('/fonts/BMWTypeNextLatin-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* fallback fonts */
 @font-face {
   font-family: roboto-condensed-fallback;
