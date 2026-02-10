@@ -44,10 +44,16 @@ footer .footer .section:first-child .default-content-wrapper > ul {
 footer .footer .section:first-child .default-content-wrapper > ul > li {
   padding: 0 0 32px;
   box-sizing: border-box;
+  font-family: var(--heading-font-family);
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
   color: #fff;
+}
+
+/* reset font for sub-list items back to body font */
+footer .footer .section:first-child .default-content-wrapper > ul > li > ul {
+  font-family: var(--body-font-family);
 }
 
 /* sub-lists inside each column */
