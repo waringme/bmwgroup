@@ -134,10 +134,10 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.25;
   scroll-margin: 40px;
-  color: var(--heading-color);
+  color: var(--text-color);
 }
 
 h1 {
@@ -146,7 +146,10 @@ h1 {
 }
 
 h2 {
-  font-size: var(--heading-font-size-xl);
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  color: var(--text-color);
 }
 
 h3 { font-size: var(--heading-font-size-l); }
@@ -165,7 +168,7 @@ blockquote {
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 code,
@@ -305,6 +308,12 @@ main > .section > div {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+/* Full-width sections for columns blocks */
+main > .section > .columns-wrapper {
+  max-width: 100%;
+  padding: 0;
 }
 
 main > .section:first-of-type {
