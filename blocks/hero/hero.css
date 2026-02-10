@@ -77,6 +77,15 @@
   color: var(--text-color);
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(at 66% 50%, rgb(255 255 255 / 0) 0%, rgb(0 0 0) 100%);
+  pointer-events: none;
+}
+
 .hero picture {
   position: absolute;
   z-index: -1;
