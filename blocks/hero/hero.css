@@ -9,8 +9,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   padding: 48px 24px;
   min-height: 420px;
 }
@@ -18,20 +18,27 @@
 .hero h1 {
   position: relative;
   z-index: 1;
-  max-width: 800px;
-  margin: 0 auto 0.5em;
-  color: var(--background-color);
-  text-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+  max-width: 600px;
+  margin: 0 0 0.25em;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
 }
 
 .hero h2,
 .hero p {
   position: relative;
   z-index: 1;
-  max-width: 640px;
-  margin: 0 auto 1em;
-  color: var(--nav-text);
-  font-size: var(--body-font-size-m);
+  max-width: 520px;
+  margin: 0 0 0.5em;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
   text-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
 }
 
@@ -41,32 +48,32 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: center;
-  margin-top: 1em;
+  justify-content: flex-start;
+  margin-top: 0.5em;
 }
 
 .hero a.button:any-link {
   margin: 0;
   background-color: var(--button-primary-bg);
-  color: var(--background-color);
+  color: #fff;
   border: 2px solid var(--button-primary-bg);
 }
 
 .hero a.button:hover {
   background-color: var(--button-primary-hover);
   border-color: var(--button-primary-hover);
-  color: var(--background-color);
+  color: #fff;
 }
 
-.hero a.button.secondary {
-  background-color: var(--background-color);
-  border: 2px solid var(--text-color);
+.hero a.button.secondary:any-link {
+  background-color: #fff;
+  border: 2px solid #fff;
   color: var(--text-color);
 }
 
 .hero a.button.secondary:hover {
   background-color: var(--light-color);
-  border-color: var(--text-color);
+  border-color: var(--light-color);
   color: var(--text-color);
 }
 
@@ -86,8 +93,18 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 80px 32px;
+    padding: 80px 48px;
     min-height: 520px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    line-height: 27px;
   }
 }
 
@@ -95,5 +112,6 @@
   .hero {
     min-height: 56vh;
     max-height: 680px;
+    padding: 80px 64px;
   }
 }
